@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -10,21 +17,23 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="half-life"
+# ZSH_THEME="sonicradish"
 
-
-POWERLEVEL9K_BATTERY_STAGES="▁▂▃▄▅▆▇█"
-POWERLEVEL9K_BATTERY_LEVEL_BACKGROUND=(red3 darkorange3 darkgoldenrod gold3 yellow3 chartreuse2 mediumspringgreen green3 green3 green4 darkgreen)
-POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+# POWERLEVEL9K_BATTERY_STAGES="▁▂▃▄▅▆▇█"
+# POWERLEVEL9K_BATTERY_LEVEL_BACKGROUND=(red3 darkorange3 darkgoldenrod gold3 yellow3 chartreuse2 mediumspringgreen green3 green3 green4 darkgreen)
+# POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX=" "
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
+# POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="ᐅ "
+# POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX=""
 POWERLEVEL9K_HOME_ICON=''
 POWERLEVEL9K_HOME_SUB_ICON=''
 POWERLEVEL9K_FOLDER_ICON=''
-POWERLEVEL9K_VCS_GIT_GITHUB_ICON=''
+# POWERLEVEL9K_VCS_GIT_GITHUB_ICON=''
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery ram virtualenv)
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(user dir vcs)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status battery ram virtualenv nodeenv nvm)
 
 # POWERLEVEL9K_DISABLE_RPROMPT=true
 typeset POWERLEVEL9K_{ROOT,SUDO,USER}_ICON=$'\uF415'
@@ -116,3 +125,27 @@ export PATH="$PATH:/home/nhulox97/development/flutter/bin"
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias diff='diff --color=auto'
+command -v lsd > /dev/null && alias ls='lsd --group-dirs first'
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/nhulox97/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/nhulox97/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/nhulox97/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/nhulox97/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
