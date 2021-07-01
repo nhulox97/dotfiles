@@ -3,7 +3,7 @@ syntax on
 set nocompatible              " be iMproved, required
 
 filetype off                  " required
-set textwidth=80
+set textwidth=100
 set colorcolumn=-2
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -48,7 +48,7 @@ Plugin 'preservim/nerdtree'
 " Vim icons
 Plugin 'ryanoasis/vim-devicons'
 " YouCompleteMe
-Plugin 'ycm-core/YouCompleteMe'
+" Plugin 'ycm-core/YouCompleteMe'
 " ColorPicker
 Plugin 'KabbAmine/vCoolor.vim'
 " Auto pairs: Insert or delete brackets, parens, quotes in pair.
@@ -65,19 +65,19 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'maxmellon/vim-jsx-pretty' 
 " JS and JSX syntax
 Plugin 'neoclide/coc.nvim' , { 'branch' : 'release' }
+" vim-prettier
+Plugin 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 "----------------------------- Themes stuff -----------------------------
 " Gruvbox theme
-Plugin 'morhetz/gruvbox'
+Plugin 'gruvbox-community/gruvbox'
 " Ayu theme
 Plugin 'ayu-theme/ayu-vim'
 " Nord theme
 Plugin 'arcticicestudio/nord-vim'
 " Dracula theme
 Plugin 'dracula/vim', { 'name': 'dracula' }
-" Minimalist theme
-Plugin 'dikiaap/minimalist'
-" Tender theme
-Plugin 'jacoborus/tender.vim'
 " Gruvbox material
 Plugin 'sainnhe/gruvbox-material'
 " Synthwave 84
@@ -88,24 +88,26 @@ Plugin 'doums/darcula'
 Plugin 'sainnhe/sonokai'
 " xcode
 Plugin 'arzg/vim-colors-xcode'
-" vim-eighties"
-Plugin 'lithammer/vim-eighties'
 "onedark
 Plugin 'joshdick/onedark.vim'
 " tokyonight
 Plugin 'ghifarit53/tokyonight-vim'
 " Oceanic next
 Plugin 'adrian5/oceanic-next-vim'
-" soul 256
-Plugin 'junegunn/seoul256.vim'
 " onehalf
 Plugin 'sonph/onehalf', {'rtp': 'vim/'}
 " space-vim-dark
 Plugin 'liuchengxu/space-vim-dark'
+" neodark
+Plugin 'KeitaNakamura/neodark.vim'
+" GitHub dark
+Plugin 'wojciechkepka/vim-github-dark'
 " Wakatime: The open source plugin for productivity metrics, goals, leaderboards, and automatic time tracking.
 Plugin 'wakatime/vim-wakatime'
-" Rust support
-Plugin 'rust-lang/rust.vim'
+
+" Fluter plugins
+Plugin 'dart-lang/dart-vim-plugin'
+Plugin 'thosakwe/vim-flutter'
 " -----------------------End MyPlugs-----------------------
 
 call vundle#end()            " required
@@ -130,10 +132,19 @@ set expandtab
 set noshiftround
 set nobackup
 set noswapfile
-set number
 set bg=dark
+" set theme
+set termguicolors
+set completeopt-=preview
 " set mouse=ni
 set encoding=UTF-8
+" hybrid numbering lines
+set number relativenumber
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 " End My sets
 
 "########################### Begin My maps ###########################
@@ -159,9 +170,9 @@ nmap <silent> <C-e> <Plug>(ale_next_wrap)
 " End My maps
 
 " Gruvbox confs
-let g:gruvbox_bold= '(1)'
-let g:gruvbox_constrast = '(soft)'
-let g:gruvbox_constrast_dark = '(soft)'
+" let g:gruvbox_bold= '(1)'
+" let g:gruvbox_constrast = '(soft)'
+" let g:gruvbox_constrast_dark = '(soft)'
 " colorscheme gruvbox
 
 " Ayu confs
@@ -170,13 +181,10 @@ let ayucolor="dark"
 " tokyonight confs
 let g:tokyonight_style = 'night'
 
-" set theme
-set termguicolors
-colorscheme tokyonight
+" neodark confs
+let g:neodark#use_256color = 1 " default: 0
 
-" YouCompleteMe confs
-set completeopt-=preview
-let g:ycm_rust_src_path = './Development/rust-master/src'
+colorscheme gruvbox
 
 " airline fonts
 let g:airline_powerline_fonts = 1
@@ -192,6 +200,14 @@ let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 " set laststatus=2
 filetype plugin indent on
 " COC server
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
 " Remap keys for applying codeAction to the current line.
 nmap <leader>ac  <Plug>(coc-codeaction)
 " Apply AutoFix to problem on the current line.
@@ -202,3 +218,8 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" prettier confs
+nmap <Leader>py <Plug>(Prettier)
+let g:prettier#autoformat = 1
+let g:prettier#autoformat_require_pragma = 0
