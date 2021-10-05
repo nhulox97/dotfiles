@@ -1,9 +1,8 @@
 " Turn on syntax highlighting .
 syntax on
 set nocompatible              " be iMproved, required
-
-filetype off                  " required
 set textwidth=100
+filetype off                  " required
 set colorcolumn=-2
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -69,6 +68,8 @@ Plugin 'neoclide/coc.nvim' , { 'branch' : 'release' }
 Plugin 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+" vim colorized brackets
+Plugin 'frazrepo/vim-rainbow'
 "----------------------------- Themes stuff -----------------------------
 " Gruvbox theme
 Plugin 'gruvbox-community/gruvbox'
@@ -102,12 +103,19 @@ Plugin 'liuchengxu/space-vim-dark'
 Plugin 'KeitaNakamura/neodark.vim'
 " GitHub dark
 Plugin 'wojciechkepka/vim-github-dark'
+" vim-nightfly-guicolors
+Plugin 'bluz71/vim-nightfly-guicolors'
+
 " Wakatime: The open source plugin for productivity metrics, goals, leaderboards, and automatic time tracking.
 Plugin 'wakatime/vim-wakatime'
 
 " Fluter plugins
 Plugin 'dart-lang/dart-vim-plugin'
 Plugin 'thosakwe/vim-flutter'
+
+" PHP plugins
+Plugin 'StanAngeloff/php.vim'
+
 " -----------------------End MyPlugs-----------------------
 
 call vundle#end()            " required
@@ -169,6 +177,11 @@ nnoremap <C-l> gg=G<CR>
 nmap <silent> <C-e> <Plug>(ale_next_wrap)
 " End My maps
 
+
+" ########################### Set colorscheme ###########################
+colorscheme nightfly
+
+
 " Gruvbox confs
 " let g:gruvbox_bold= '(1)'
 " let g:gruvbox_constrast = '(soft)'
@@ -184,7 +197,6 @@ let g:tokyonight_style = 'night'
 " neodark confs
 let g:neodark#use_256color = 1 " default: 0
 
-colorscheme gruvbox
 
 " airline fonts
 let g:airline_powerline_fonts = 1
@@ -223,3 +235,6 @@ nmap <silent> gr <Plug>(coc-references)
 nmap <Leader>py <Plug>(Prettier)
 let g:prettier#autoformat = 1
 let g:prettier#autoformat_require_pragma = 0
+
+" vim-rainbow
+let g:rainbow_active = 1
