@@ -46,8 +46,6 @@ Plugin 'mattn/emmet-vim'
 Plugin 'preservim/nerdtree'
 " Vim icons
 Plugin 'ryanoasis/vim-devicons'
-" YouCompleteMe
-" Plugin 'ycm-core/YouCompleteMe'
 " ColorPicker
 Plugin 'KabbAmine/vCoolor.vim'
 " Auto pairs: Insert or delete brackets, parens, quotes in pair.
@@ -106,15 +104,6 @@ Plugin 'wojciechkepka/vim-github-dark'
 " vim-nightfly-guicolors
 Plugin 'bluz71/vim-nightfly-guicolors'
 
-" Wakatime: The open source plugin for productivity metrics, goals, leaderboards, and automatic time tracking.
-Plugin 'wakatime/vim-wakatime'
-
-" Fluter plugins
-Plugin 'dart-lang/dart-vim-plugin'
-Plugin 'thosakwe/vim-flutter'
-
-" PHP plugins
-Plugin 'StanAngeloff/php.vim'
 
 " -----------------------End MyPlugs-----------------------
 
@@ -179,7 +168,7 @@ nmap <silent> <C-e> <Plug>(ale_next_wrap)
 
 
 " ########################### Set colorscheme ###########################
-colorscheme nightfly
+colorscheme gruvbox-material
 
 
 " Gruvbox confs
