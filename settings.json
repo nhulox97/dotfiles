@@ -1,0 +1,181 @@
+{
+  // editor confs
+  // "editor.fontFamily": "FiraCode Nerd Font",
+  "editor.fontFamily": "CaskaydiaCove Nerd Font Mono",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.lineHeight": 2.2,
+  "editor.letterSpacing": 1.35,
+  "editor.fontWeight": "500",
+  "editor.tabSize": 2,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.accessibilitySupport": "off",
+  "editor.suggestSelection": "first",
+  "editor.renderWhitespace": "boundary",
+  // The default syntax (TextMate) highlighter classifies many tokens as variables and these are now (since VSCode 1.43) resolved into namespaces, classes, parameters, and so on. This is called Semantic highlighting support for TypeScript and JavaScript. But many themes and language extensions seem broken with single-colored syntax. This came as a surprise to me. It's set `true` by default. I recommend disabling this for now.
+  "editor.semanticHighlighting.enabled": false,
+  // terminal confs
+  "terminal.integrated.fontFamily": "CaskaydiaCove Nerd Font Mono",
+  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontWeight": 500,
+  "terminal.integrated.lineHeight": 1.5,
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.enableBell": true,
+  "terminal.integrated.cursorStyle": "underline",
+  "terminal.integrated.letterSpacing": 1.0,
+  "debug.console.fontSize": 13,
+  // Enable per-language
+  "[javascript]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.formatOnSave": true,
+    "editor.rulers": [{ "color": "#242428", "column": 100 }],
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "yaml.schemas": {
+    "file:///Users/nhulox97/.vscode/extensions/atlassian.atlascode-2.10.12/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+  },
+  "redhat.telemetry.enabled": false,
+  "git.confirmSync": false,
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "vsicons.dontShowNewVersionMessage": true,
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "powermode.enabled": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "explorer.confirmDelete": false,
+  "gitlens.advanced.messages": {
+    "suppressLineUncommittedWarning": true
+  },
+  "settingsSync.ignoredSettings": ["editor.fontFamily"],
+  "settingsSync.ignoredExtensions": ["gitlab.gitlab-workflow"],
+  "editor.formatOnSave": true,
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.lineNumbers": "relative",
+  "gitlens.gitCommands.skipConfirmations": [
+    "fetch:command",
+    "switch:command",
+    "stash-push:command"
+  ],
+  "liveServer.settings.donotShowInfoMsg": true,
+  "[html]": {
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "material-icon-theme.activeIconPack": "nest",
+  // Italics
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "name": "yellow cursive",
+        "scope": [
+          //
+          // Add the scope of things you want to be
+          // yellow and cursive here
+          //
+          "support.constant.math", // Math
+          "support.class.builtin.js",
+          "support.variable.dom.js", // "document"
+          "entity.name", // "Object"
+          "entity.name.type.js",
+          "entity.name.type.class.js",
+          "support.function.magic.python",
+          "entity.other.attribute-name.html"
+        ],
+        "settings": {
+          "foreground": "#fec355", // change this COLOR
+          "fontStyle": "italic" // dont change this
+        }
+      },
+      {
+        "name": "purple cursive",
+        "scope": [
+          //
+          // Add the scope of things you want to be
+          // Purple and cursive here
+          //
+          "entity.other.attribute-name",
+          "entity.other.attribute-name.js.jsx"
+        ],
+        "settings": {
+          "foreground": "#c792eaff", // change this COLOR
+          "fontStyle": "italic" // dont change this
+        }
+      }
+      //
+      // Add more cursive styles here
+      // because you probably wont like just yellow and purple
+      //
+    ]
+  },
+  "workbench.sideBar.location": "right",
+  "git.suggestSmartCommit": false,
+  "editor.cursorBlinking": "phase",
+
+  "vim.normalModeKeyBindings": [
+    {
+      "before": ["g", "r"],
+      "commands": ["editor.action.goToReferences"]
+    }
+  ],
+  "cSpell.userWords": [
+    "Addln",
+    "amqp",
+    "antd",
+    "Applaudo",
+    "asyncapi",
+    "Bernal",
+    "birthdate",
+    "cloudinary",
+    "Cloudinary",
+    "dayjs",
+    "dtos",
+    "ILIKE",
+    "nestjs",
+    "nhulox",
+    "NORTHFLANK",
+    "pikachu",
+    "pokedex",
+    "Pokedex",
+    "pokemon",
+    "Popayload",
+    "popayloads",
+    "Popayloads",
+    "postgres",
+    "powermode",
+    "Pressable",
+    "QLJSON",
+    "ramco",
+    "Ramco",
+    "Shopii",
+    "typeorm",
+    "upserted",
+    "Wazu"
+  ],
+  "cSpell.language": "en,es-ES",
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Neon City",
+  "[handlebars]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "errorLens.excludeBySource": ["YAML(768)", "ts(2339)"],
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  }
+}
